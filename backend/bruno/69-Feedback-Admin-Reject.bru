@@ -1,0 +1,16 @@
+meta {
+  name: 69 - Feedback: Admin Reject Feedback
+  type: http
+  seq: 69
+}
+
+patch {
+  url: http://localhost:5000/api/feedback/1/reject
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

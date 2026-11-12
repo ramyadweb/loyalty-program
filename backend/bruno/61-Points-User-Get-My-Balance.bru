@@ -1,0 +1,16 @@
+meta {
+  name: 61 - Points: User Get My Balance
+  type: http
+  seq: 61
+}
+
+get {
+  url: http://localhost:5000/api/points/my-balance
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

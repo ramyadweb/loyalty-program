@@ -1,0 +1,16 @@
+meta {
+  name: 45 - Notifications: Mark All Notifications As Read
+  type: http
+  seq: 45
+}
+
+patch {
+  url: http://localhost:5000/api/notifications/read-all
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

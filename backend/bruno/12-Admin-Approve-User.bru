@@ -1,0 +1,16 @@
+meta {
+  name: 12 - Admin: Approve User
+  type: http
+  seq: 12
+}
+
+patch {
+  url: http://localhost:5000/api/admin/users/1/approve
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

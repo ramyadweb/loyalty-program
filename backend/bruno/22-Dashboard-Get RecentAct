@@ -1,0 +1,15 @@
+meta {
+  name: 22 - Dashboard: Get All Recent Activities
+  type: http
+  seq: 22
+}
+
+get {
+  url: http://localhost:5000/api/dashboard/admin/recent-activities
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}

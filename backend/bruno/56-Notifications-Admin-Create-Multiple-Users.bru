@@ -1,0 +1,26 @@
+meta {
+  name: 56 - Notifications: Admin Create Multiple Users
+  type: http
+  seq: 56
+}
+
+post {
+  url: http://localhost:5000/api/notifications
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "recipientType": "multiple",
+    "userIds": [1, 2],
+    "title": "VIP Tier Loyalty Milestone",
+    "message": "Congratulations on reaching Gold Tier status! You have been awarded 500 bonus loyalty points.",
+    "type": "reward"
+  }
+}
+

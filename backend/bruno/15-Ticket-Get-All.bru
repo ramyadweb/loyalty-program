@@ -1,0 +1,16 @@
+meta {
+  name: 15 - Ticket: Get All Tickets
+  type: http
+  seq: 15
+}
+
+get {
+  url: http://localhost:5000/api/tickets?page=1&limit=10&status=all&priority=all&category=&search=
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_JWT_TOKEN_HERE
+}
+

@@ -1,0 +1,16 @@
+meta {
+  name: 38 - Reward Redemption: Get Redemption By ID
+  type: http
+  seq: 38
+}
+
+get {
+  url: http://localhost:5000/api/reward-redemption/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

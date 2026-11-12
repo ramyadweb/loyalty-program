@@ -1,0 +1,16 @@
+meta {
+  name: 54 - Notifications: Admin Get Unread Count
+  type: http
+  seq: 54
+}
+
+get {
+  url: http://localhost:5000/api/notifications/admin/unread-count
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

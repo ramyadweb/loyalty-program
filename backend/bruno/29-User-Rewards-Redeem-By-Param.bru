@@ -1,0 +1,16 @@
+meta {
+  name: 29 - User Rewards: Redeem Reward By Param
+  type: http
+  seq: 29
+}
+
+post {
+  url: http://localhost:5000/api/user-rewards/redeem/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

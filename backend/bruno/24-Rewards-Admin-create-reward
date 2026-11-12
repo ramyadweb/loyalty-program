@@ -1,0 +1,25 @@
+meta {
+  name:24 - Reward:Admin Create Rewards
+  type: http
+  seq: 24
+}
+
+post {
+  url: http://localhost:5000/api/rewards
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+json: {
+  "name": "Amazon Gift Voucher",
+  "description": "Get an Amazon gift voucher worth ₹500.",
+  "pointsRequired": 500,
+  "stock": 50,
+  "image": "https://example.com/images/amazon-voucher.png",
+  "status": "active"
+}
+

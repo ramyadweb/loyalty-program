@@ -1,0 +1,16 @@
+meta {
+  name: 51 - Reports: Admin Get Ticket Statistics
+  type: http
+  seq: 51
+}
+
+get {
+  url: http://localhost:5000/api/reports/tickets
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

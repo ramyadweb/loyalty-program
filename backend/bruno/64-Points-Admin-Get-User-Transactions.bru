@@ -1,0 +1,21 @@
+meta {
+  name: 64 - Points: Admin Get User Transactions
+  type: http
+  seq: 64
+}
+
+get {
+  url: http://localhost:5000/api/points/user/2?page=1&limit=10
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  limit: 10
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

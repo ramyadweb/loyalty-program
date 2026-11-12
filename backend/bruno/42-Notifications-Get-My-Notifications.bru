@@ -1,0 +1,16 @@
+meta {
+  name: 42 - Notifications: Get My Notifications
+  type: http
+  seq: 42
+}
+
+get {
+  url: http://localhost:5000/api/notifications
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

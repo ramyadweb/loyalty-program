@@ -1,0 +1,29 @@
+meta {
+  name: 73 - Reward Redemption: Admin Blocked From Generating Voucher
+  type: http
+  seq: 73
+}
+
+post {
+  url: http://localhost:5000/api/reward-redemption
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "userRewardId": 1
+  }
+}
+
+# Expected Response:
+# HTTP 403 Forbidden
+# {
+#   "success": false,
+#   "message": "Access forbidden: insufficient role permissions" OR "Administrators cannot redeem rewards or generate voucher codes."
+# }
+

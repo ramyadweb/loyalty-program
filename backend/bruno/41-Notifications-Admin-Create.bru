@@ -1,0 +1,25 @@
+meta {
+  name: 41 - Notifications: Admin Create Notification
+  type: http
+  seq: 41
+}
+
+post {
+  url: http://localhost:5000/api/notifications
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "userId": 1,
+    "title": "Welcome Bonus",
+    "message": "You have received 100 bonus loyalty points!",
+    "type": "reward"
+  }
+}
+

@@ -1,0 +1,35 @@
+meta {
+  name: 75 - Ticket: Admin Open Ticket (Earns 20 Points for Owner)
+  type: http
+  seq: 75
+}
+
+post {
+  url: http://localhost:5000/api/tickets/1/open
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+# Expected Response:
+# HTTP 200 OK
+# {
+#   "success": true,
+#   "message": "Ticket opened successfully. 20 loyalty points awarded to ticket owner.",
+#   "data": {
+#     "ticket": {
+#       "id": 1,
+#       "openedAt": "2026-11-10T...",
+#       "openedBy": 3
+#     },
+#     "pointsAwarded": 20,
+#     "ticketOwner": {
+#       "id": 8,
+#       "name": "Reddy"
+#     }
+#   }
+# }
+

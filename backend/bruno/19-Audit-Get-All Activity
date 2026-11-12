@@ -1,0 +1,16 @@
+meta {
+  name: 19 - Audit: Get All records
+  type: http
+  seq: 19
+}
+
+get {
+  url: http://localhost:5000/api/audit
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

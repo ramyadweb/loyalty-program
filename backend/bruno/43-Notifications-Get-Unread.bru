@@ -1,0 +1,16 @@
+meta {
+  name: 43 - Notifications: Get Unread Notifications
+  type: http
+  seq: 43
+}
+
+get {
+  url: http://localhost:5000/api/notifications/unread
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

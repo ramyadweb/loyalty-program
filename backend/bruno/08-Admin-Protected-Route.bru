@@ -1,0 +1,16 @@
+meta {
+  name: 08 - Admin Protected Route (Admin Role Required)
+  type: http
+  seq: 8
+}
+
+get {
+  url: http://localhost:5000/api/auth/admin/protected-data
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

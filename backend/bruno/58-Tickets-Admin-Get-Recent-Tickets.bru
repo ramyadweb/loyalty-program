@@ -1,0 +1,16 @@
+meta {
+  name: 58 - Tickets: Admin Get Recent Tickets
+  type: http
+  seq: 58
+}
+
+get {
+  url: http://localhost:5000/api/tickets/recent?limit=10
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

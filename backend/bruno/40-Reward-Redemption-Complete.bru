@@ -1,0 +1,16 @@
+meta {
+  name: 40 - Reward Redemption: Admin Complete Redemption
+  type: http
+  seq: 40
+}
+
+patch {
+  url: http://localhost:5000/api/reward-redemption/1/complete
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

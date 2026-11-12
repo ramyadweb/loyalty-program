@@ -1,0 +1,22 @@
+meta {
+  name: 35 - Reward Redemption: User Generate Redemption Code
+  type: http
+  seq: 35
+}
+
+post {
+  url: http://localhost:5000/api/reward-redemption
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "userRewardId": 1
+  }
+}
+

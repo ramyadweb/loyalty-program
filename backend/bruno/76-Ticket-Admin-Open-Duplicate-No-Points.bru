@@ -1,0 +1,26 @@
+meta {
+  name: 76 - Ticket: Admin Open Duplicate (No Additional Points)
+  type: http
+  seq: 76
+}
+
+post {
+  url: http://localhost:5000/api/tickets/1/open
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+# Expected Response:
+# HTTP 200 OK
+# {
+#   "success": true,
+#   "message": "Ticket already opened previously. No additional points awarded.",
+#   "data": {
+#     "pointsAwarded": 0
+#   }
+# }
+

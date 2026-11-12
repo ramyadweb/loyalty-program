@@ -1,0 +1,15 @@
+meta {
+  name: 21 - Dashboard: Get Dashboard stats
+  type: http
+  seq: 21
+}
+
+get {
+  url: http://localhost:5000/api/dashboard/admin/stats
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}

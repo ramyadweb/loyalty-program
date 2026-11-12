@@ -1,0 +1,39 @@
+meta {
+  name: 74 - Ticket: User Create Ticket (Earns 50 Points)
+  type: http
+  seq: 74
+}
+
+post {
+  url: http://localhost:5000/api/tickets
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "subject": "Points not credited for partner offer",
+    "description": "I completed the purchase at our partner store but 500 bonus points have not reflected yet.",
+    "category": "Points",
+    "priority": "high"
+  }
+}
+
+# Expected Response:
+# HTTP 201 Created
+# {
+#   "success": true,
+#   "message": "Ticket created successfully.",
+#   "data": {
+#     "id": 1,
+#     "userId": 8,
+#     "subject": "Points not credited for partner offer",
+#     "status": "open",
+#     "pointsAwarded": 50
+#   }
+# }
+

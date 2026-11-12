@@ -1,0 +1,19 @@
+meta {
+  name: 02 - Admin Login
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:5000/api/auth/admin/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "admin@loyalty.com",
+    "password": "Admin@12345"
+  }
+}
+

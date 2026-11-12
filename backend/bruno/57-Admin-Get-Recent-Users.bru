@@ -1,0 +1,16 @@
+meta {
+  name: 57 - Admin: Get Recent Registered Users
+  type: http
+  seq: 57
+}
+
+get {
+  url: http://localhost:5000/api/admin/users/recent?limit=10
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

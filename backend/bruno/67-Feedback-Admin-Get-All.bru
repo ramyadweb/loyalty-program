@@ -1,0 +1,22 @@
+meta {
+  name: 67 - Feedback: Admin Get All Feedback
+  type: http
+  seq: 67
+}
+
+get {
+  url: http://localhost:5000/api/feedback?page=1&limit=10&status=pending
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  limit: 10
+  status: pending
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

@@ -1,0 +1,23 @@
+meta {
+  name: 70 - Points: Admin Blocked From My Balance
+  type: http
+  seq: 70
+}
+
+get {
+  url: http://localhost:5000/api/points/my-balance
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+# Expected Response:
+# HTTP 403 Forbidden
+# {
+#   "success": false,
+#   "message": "Access forbidden: insufficient role permissions" OR "Administrator accounts do not participate in loyalty points."
+# }
+

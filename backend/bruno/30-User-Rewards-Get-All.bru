@@ -1,0 +1,16 @@
+meta {
+  name: 30 - User Rewards: Admin Get All User Rewards
+  type: http
+  seq: 30
+}
+
+get {
+  url: http://localhost:5000/api/user-rewards
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

@@ -1,0 +1,16 @@
+meta {
+  name: 10 - Admin: Get All Users
+  type: http
+  seq: 10
+}
+
+get { http://localhost:5000/api/admin/users?page=1&limit=10&status=all&search=
+  url: 
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

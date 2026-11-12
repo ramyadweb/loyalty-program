@@ -1,0 +1,24 @@
+meta {
+  name: 26 - Rewards: Update Rewards
+  type: http
+  seq: 26
+}
+
+patch {
+  url: http://localhost:5000/api/rewards/:id
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+json: {
+  "name": "Premium Bluetooth Headphones",
+  "description": "High-quality wireless headphones with noise cancellation.",
+  "pointsRequired": 2000,
+  "stock": 15,
+  "status": "active"
+}
+

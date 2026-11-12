@@ -1,0 +1,29 @@
+meta {
+  name: 72 - User Rewards: Admin Blocked From Redeeming
+  type: http
+  seq: 72
+}
+
+post {
+  url: http://localhost:5000/api/user-rewards
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "rewardId": 1
+  }
+}
+
+# Expected Response:
+# HTTP 403 Forbidden
+# {
+#   "success": false,
+#   "message": "Access forbidden: insufficient role permissions" OR "Administrators cannot claim or redeem rewards."
+# }
+

@@ -1,0 +1,21 @@
+meta {
+  name: 62 - Points: User Get My History
+  type: http
+  seq: 62
+}
+
+get {
+  url: http://localhost:5000/api/points/my-history?page=1&limit=10
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  limit: 10
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

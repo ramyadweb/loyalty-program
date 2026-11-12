@@ -1,0 +1,35 @@
+meta {
+  name: 77 - Ticket: Admin Resolve Ticket (Earns 50 Points for Owner)
+  type: http
+  seq: 77
+}
+
+patch {
+  url: http://localhost:5000/api/tickets/1/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "status": "resolved",
+    "adminResponse": "Points have been reconciled and manual bonus credited to your account."
+  }
+}
+
+# Expected Response:
+# HTTP 200 OK
+# {
+#   "success": true,
+#   "message": "Ticket resolved successfully. 50 loyalty points awarded to ticket owner.",
+#   "data": {
+#     "id": 1,
+#     "status": "resolved",
+#     "pointsAwarded": 50
+#   }
+# }
+

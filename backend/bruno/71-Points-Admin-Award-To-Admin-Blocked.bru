@@ -1,0 +1,31 @@
+meta {
+  name: 71 - Points: Admin Award To Admin Blocked
+  type: http
+  seq: 71
+}
+
+post {
+  url: http://localhost:5000/api/points/award
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "userId": 3,
+    "points": 50,
+    "description": "Attempt to award bonus points to admin account"
+  }
+}
+
+# Expected Response:
+# HTTP 400 Bad Request
+# {
+#   "success": false,
+#   "message": "Administrator accounts cannot receive or hold loyalty points."
+# }
+

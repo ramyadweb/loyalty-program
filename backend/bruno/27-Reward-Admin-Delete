@@ -1,0 +1,16 @@
+meta {
+  name: 27 - Reward: Delete Rewards
+  type: http
+  seq: 27
+}
+
+delete {
+  url: http://localhost:5000/api/rewards/3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

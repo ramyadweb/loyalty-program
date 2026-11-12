@@ -1,0 +1,21 @@
+meta {
+  name: 63 - Points: Admin Get All Transactions
+  type: http
+  seq: 63
+}
+
+get {
+  url: http://localhost:5000/api/points/all-transactions?page=1&limit=10
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  limit: 10
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

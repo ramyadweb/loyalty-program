@@ -1,0 +1,24 @@
+meta {
+  name: 60 - Points: Admin Award Points
+  type: http
+  seq: 60
+}
+
+post {
+  url: http://localhost:5000/api/points/award
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "userId": 2,
+    "points": 50,
+    "description": "Special promotional bonus"
+  }
+}
+

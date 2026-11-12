@@ -1,0 +1,25 @@
+meta {
+  name: 55 - Notifications: Admin Create Broadcast All Users
+  type: http
+  seq: 55
+}
+
+post {
+  url: http://localhost:5000/api/notifications
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "recipientType": "all",
+    "title": "Platform Maintenance Notice",
+    "message": "We will be performing scheduled database upgrades at 2:00 AM UTC. Expect 5 minutes of downtime.",
+    "type": "announcement"
+  }
+}
+

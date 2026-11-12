@@ -1,0 +1,16 @@
+meta {
+  name: 36 - Reward Redemption: Admin Get All Redemptions
+  type: http
+  seq: 36
+}
+
+get {
+  url: http://localhost:5000/api/reward-redemption
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

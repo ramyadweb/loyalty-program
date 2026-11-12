@@ -1,0 +1,16 @@
+meta {
+  name: 23 - Reward: Get All Rewards
+  type: http
+  seq: 23
+}
+
+get {
+  url: http://localhost:5000/api/rewards
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_JWT_TOKEN_HERE
+}
+

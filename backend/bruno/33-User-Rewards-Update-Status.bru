@@ -1,0 +1,22 @@
+meta {
+  name: 33 - User Rewards: Admin Update Status
+  type: http
+  seq: 33
+}
+
+patch {
+  url: http://localhost:5000/api/user-rewards/1/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "status": "approved"
+  }
+}
+

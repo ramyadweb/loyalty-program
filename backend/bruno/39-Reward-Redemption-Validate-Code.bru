@@ -1,0 +1,16 @@
+meta {
+  name: 39 - Reward Redemption: Admin Validate Redemption Code
+  type: http
+  seq: 39
+}
+
+post {
+  url: http://localhost:5000/api/reward-redemption/1/validate
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

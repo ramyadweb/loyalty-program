@@ -1,0 +1,16 @@
+meta {
+  name: 18 - Ticket: Delete Ticket (Admin Only)
+  type: http
+  seq: 18
+}
+
+delete {
+  url: http://localhost:5000/api/tickets/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

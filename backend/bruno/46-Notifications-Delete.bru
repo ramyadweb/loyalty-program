@@ -1,0 +1,16 @@
+meta {
+  name: 46 - Notifications: Delete Notification
+  type: http
+  seq: 46
+}
+
+delete {
+  url: http://localhost:5000/api/notifications/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+

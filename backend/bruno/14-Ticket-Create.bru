@@ -1,0 +1,25 @@
+meta {
+  name: 14 - Ticket: Create Ticket
+  type: http
+  seq: 14
+}
+
+post {
+  url: http://localhost:5000/api/tickets
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_JWT_TOKEN_HERE
+}
+
+body:json {
+  {
+    "subject": "Unable to redeem reward",
+    "description": "I am unable to redeem my reward points. Please help me.",
+    "category": "Rewards",
+    "priority": "high"
+  }
+}
+

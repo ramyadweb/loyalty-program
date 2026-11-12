@@ -1,0 +1,16 @@
+meta {
+  name: 53 - Notifications: Admin Get System Notifications
+  type: http
+  seq: 53
+}
+
+get {
+  url: http://localhost:5000/api/notifications/admin?limit=20
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_ADMIN_JWT_TOKEN_HERE
+}
+

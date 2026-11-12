@@ -1,0 +1,16 @@
+meta {
+  name: 66 - Feedback: User Get My Feedback
+  type: http
+  seq: 66
+}
+
+get {
+  url: http://localhost:5000/api/feedback/my-feedback
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: PASTE_USER_JWT_TOKEN_HERE
+}
+
