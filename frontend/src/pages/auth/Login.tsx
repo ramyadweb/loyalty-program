@@ -52,14 +52,19 @@ function Login() {
           ? await authApi.adminLogin({ email: email.trim(), password })
           : await authApi.userLogin({ email: email.trim(), password });
       const data = response.data as {
-        user: AuthUser;
-        token: string;
+        user?: AuthUser;
+        token?: string;
         requiresOtp?: boolean;
       };
 
-      if (data.requiresOtp) {
+      if (data?.requiresOtp) {
         sessionStorage.setItem("otp_email", email.trim());
         navigate("/verify-otp", { replace: true });
+        return;
+      }
+
+      if (!data?.user || !data?.token) {
+        setError("Unexpected response from server. Please try again.");
         return;
       }
 
@@ -85,13 +90,20 @@ function Login() {
         response?: { data?: { message?: string }; status?: number };
         message?: string;
       };
+      const serverMessage =
+        typeof axiosError.response?.data?.message === "string"
+          ? axiosError.response.data.message
+          : undefined;
+      const status = axiosError.response?.status;
       const message =
-        axiosError.response?.data?.message ??
-        (axiosError.response?.status === 401
+        serverMessage ??
+        (status === 401
           ? "Invalid email or password. Please try again."
-          : axiosError.response?.status === 403
+          : status === 403
             ? "Your account is pending approval. Please wait for admin approval."
-            : "Unable to connect to the server. Please try again later.");
+            : !axiosError.response || status === 502 || status === 503 || status === 504
+              ? "Unable to connect to the server. Please try again later."
+              : `Request failed (status ${status}). Please try again.`);
       setError(message);
     } finally {
       setLoading(false);

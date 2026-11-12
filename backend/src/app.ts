@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { db } from "./config/db.js";
-import express from "express";
+import express, { type NextFunction, type Request, type Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
@@ -20,9 +20,24 @@ dotenv.config();
 
 const app = express();
 
+const configuredOrigins = (process.env.FRONTEND_URL || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
+const localhostOriginPattern = /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/;
+
 // Middleware
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin: (origin, callback) => {
+        if (!origin || configuredOrigins.includes(origin) || localhostOriginPattern.test(origin)) {
+            return callback(null, true);
+        }
+        return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 app.use(express.json());
@@ -74,6 +89,23 @@ app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
         message: "Loyalty Program Backend is running!"
+    });
+});
+
+// Return JSON for unknown /api routes and middleware errors
+app.use("/api", (_req, res) => {
+    res.status(404).json({
+        success: false,
+        message: "API endpoint not found.",
+    });
+});
+
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+    console.error("Unhandled Request Error:", err);
+    const status = err.message.startsWith("CORS blocked") ? 403 : 500;
+    res.status(status).json({
+        success: false,
+        message: err.message || "Internal server error",
     });
 });
 

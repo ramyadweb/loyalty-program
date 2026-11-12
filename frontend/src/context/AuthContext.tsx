@@ -43,8 +43,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(authUser);
     const serialized = JSON.stringify(authUser);
     if (rememberMe) {
+      sessionStorage.removeItem("auth_user");
       localStorage.setItem("auth_user", serialized);
     } else {
+      localStorage.removeItem("auth_user");
       sessionStorage.setItem("auth_user", serialized);
     }
   }, []);
